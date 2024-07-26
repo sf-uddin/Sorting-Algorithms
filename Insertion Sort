@@ -1,0 +1,22 @@
+
+//Time Compexity O(N^2) Space Complexity O(1)
+int[] insertionSort(int[] array)
+{
+    for (int i = 1; i < array.Length; i++)
+    {
+        int j = i;
+        while (j>0 && array[j] < array[j-1])
+        {
+            swap(j, j-1, array);
+            j=j-1;
+        }
+    }
+    return array;
+}
+
+void swap(int i, int j, int[] array)
+{
+    int temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+}
