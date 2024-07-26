@@ -1,0 +1,29 @@
+
+//Time Compexity O(N^2) Space Complexity O(1)
+int[] selectionSort(int[] array)
+{
+    int currentidx = 0;
+
+    while (currentidx < array.Length-1)
+    {
+        int smallestidx = currentidx;
+
+        for (int i = currentidx+1; i < array.Length; i++)
+        {
+            if ((array[smallestidx] > array[i]))
+            {
+                smallestidx = i;
+            } 
+        }
+        swap(currentidx, smallestidx, array);
+        currentidx += 1;
+    }  
+    return array;
+}
+
+void swap(int i, int j, int[] array)
+{
+    int temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+}
