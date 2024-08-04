@@ -1,4 +1,5 @@
-
+//Time Complexity-----Best Case- O(N log(N)), Worst Case-O(N^2)
+//Space Complexity----O(log(N))
    int[] QuickSort(int[] array) 
   {
     QuickSort(array, 0, array.Length-1);
