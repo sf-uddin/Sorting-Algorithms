@@ -1,0 +1,52 @@
+
+   int[] QuickSort(int[] array) 
+  {
+    QuickSort(array, 0, array.Length-1);
+    return array;
+  }
+
+    void QuickSort(int[] array, int startIdx, int endIdx) 
+  {
+    if(startIdx >= endIdx)
+        {
+        return ;
+        }
+    int pivotIdx = startIdx;
+    int leftIdx = startIdx+1;
+    int rightIdx = endIdx;
+       
+    while(rightIdx >= leftIdx)  
+    {
+        if(array[leftIdx] > array[pivotIdx] && array[rightIdx] < array[pivotIdx])
+        {
+            swap(leftIdx,rightIdx,array);
+        }
+        if(array[leftIdx] <= array[pivotIdx])
+        {
+            leftIdx++;
+        }
+        if(array[rightIdx] >= array[pivotIdx])
+        {
+            rightIdx--;
+        }
+    }
+        swap(pivotIdx,rightIdx,array);
+        bool leftsubArrIssmall= rightIdx-1-startIdx < endIdx- (rightIdx+1);
+        if(leftsubArrIssmall)
+        {
+            QuickSort(array, startIdx, rightIdx-1) ;
+            QuickSort(array, rightIdx+1, endIdx) ;
+        }
+        else
+        {
+          QuickSort(array, rightIdx+1, endIdx) ;  
+          QuickSort(array, startIdx, rightIdx-1) ;
+        }
+  } 
+
+ void swap(int i, int j, int[] array)
+    {
+    int temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+    }
